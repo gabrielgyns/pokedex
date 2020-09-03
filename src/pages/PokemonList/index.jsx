@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -6,19 +7,22 @@ import Card from './components/Card';
 import { List } from './styles';
 
 function PokemonList() {
-    const [url, setUrl] = useState('');
+    const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon');
     const [pokemonsList, setPokemonsList] = useState([]);
 
-    let source = axios.CancelToken.source();
     useEffect(() => {
-        if (!url) {
-            setUrl('https://pokeapi.co/api/v2/pokemon');
-        }
+        let isActive = true;
 
-        axios.get(url, { cancelToken: source.token }).then(resp => {
-            setPokemonsList(resp.data);
+        axios.get(url).then(resp => {
+            if (isActive) {
+                setPokemonsList(resp.data);
+            }
         });
-    }, [pokemonsList, source.token, url]);
+
+        return () => {
+            isActive = false;
+        };
+    }, [url]);
 
     const navPage = (newUrl) => {
         document.documentElement.scrollTop = 0;

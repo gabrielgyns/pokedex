@@ -4,13 +4,21 @@ import axios from 'axios';
 function DescriptionAbility({url}) {
     const [description, setDescription] = useState('');
 
-    let source = axios.CancelToken.source();
     useEffect(() => {
-        axios.get(url, { cancelToken: source.token }).then(result => {
+        let isActive = true;
+
+        axios.get(url).then(result => {
             const desc = result.data.effect_entries.filter(item => item.language.name === "en");
-            setDescription(desc[0].short_effect);
+            
+            if (isActive) {
+                setDescription(desc[0].short_effect);
+            }
         })
-    }, [source.token, url]);
+
+        return () => {
+            isActive = false;
+        };
+    }, [url]);
 
     return <p>{description}</p>
 }

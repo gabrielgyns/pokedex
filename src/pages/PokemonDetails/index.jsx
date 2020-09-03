@@ -13,12 +13,19 @@ function PokemonDetails() {
 
     const [info, setInfo] = useState();
 
-    let source = axios.CancelToken.source();
     useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`, { cancelToken: source.token }).then(result => {
-            setInfo(result.data);
+        let isActive = true;
+
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`).then(resul => {
+            if (isActive) {
+                setInfo(resul.data);
+            }
         });
-    }, [name, source.token]);
+
+        return () => {
+            isActive = false;
+        };
+    }, [name]);
 
     return (
         <>

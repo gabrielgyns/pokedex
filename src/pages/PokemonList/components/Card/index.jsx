@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -7,12 +8,11 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 function Card({ pokemon }) {
     const [info, setInfo] = useState();
 
-    let source = axios.CancelToken.source();
     useEffect(() => {
-        axios.get(pokemon.url, { cancelToken: source.token }).then(resul => {
+        axios.get(pokemon.url).then(resul => {
             setInfo(resul.data);
-        })
-    }, [pokemon.url, source.token]);
+        });
+    }, []);
 
     return (
         <Link as="a" to={`/details/${pokemon.name}`}>
