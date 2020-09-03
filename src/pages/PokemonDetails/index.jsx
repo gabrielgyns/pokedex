@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { AiOutlineLeftCircle } from 'react-icons/ai';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import DescriptionAbility from './DescriptionAbility';
 
@@ -27,8 +28,14 @@ function PokemonDetails() {
 
             <Deitals>
                 <div>
-                    <img src={info?.sprites?.front_default} alt={name} />
-                    <img src={info?.sprites?.back_default} alt={name} />
+                    <LazyLoadImage
+                        alt={name}
+                        src={info?.sprites?.front_default}
+                    />
+                    <LazyLoadImage
+                        alt={name}
+                        src={info?.sprites?.back_default}
+                    />
                 </div>
 
                 <div className="info-container">

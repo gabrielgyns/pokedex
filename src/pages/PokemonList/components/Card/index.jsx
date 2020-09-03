@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { AiOutlineRightCircle } from 'react-icons/ai';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function Card({ pokemon }) {
     const [info, setInfo] = useState();
@@ -15,8 +16,14 @@ function Card({ pokemon }) {
 
     return (
         <Link as="a" to={`/details/${pokemon.name}`}>
-            <img src={info?.sprites?.front_default} alt={pokemon.name} />
-            <img src={info?.sprites?.back_default} alt={pokemon.name} />
+            <LazyLoadImage
+                alt={pokemon.name}
+                src={info?.sprites?.front_default}
+            />
+            <LazyLoadImage
+                alt={pokemon.name}
+                src={info?.sprites?.back_default}
+            />
 
             <div className="info-container">
                 <small>nº {info?.id}</small>
