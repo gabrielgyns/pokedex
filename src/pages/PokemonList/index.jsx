@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Card from './components/Card';
 
-import { Form, List } from './styles';
+import { List } from './styles';
 
 function PokemonList() {
     const [url, setUrl] = useState('');
@@ -25,23 +25,9 @@ function PokemonList() {
         setUrl(newUrl);
     }
 
-    const searchField = (e) => {
-        e.preventDefault();
-
-        let filteredList = pokemonsList.results.filter(pokemon => pokemon.name.includes('e.target.value'));
-        console.log(pokemonsList.results);
-        console.log(filteredList);
-        console.log(e.target.value);
-        setPokemonsList(filteredList);
-    }
-
     return (
         <div>
             <h1 >Pokemon List</h1>
-
-            <Form onChange={searchField}>
-                <input type="text" placeholder="Filter here!" />
-            </Form>
 
             <List>
                 {pokemonsList.results?.map(pokemon => (
