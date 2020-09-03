@@ -13,7 +13,7 @@ export const Back = styled.a`
     }
 `;
 
-export const Deitals = styled.div`
+export const Details = styled.div`
     margin-top: 30px;
     max-width: 100%;
 
@@ -100,5 +100,37 @@ export const Deitals = styled.div`
         }
     }
 
-    
+    @media screen and (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            margin-right: 15px;
+            margin-bottom: 15px;
+            transform: scale(1.25);
+        }
+
+        .info-container {
+            display: flex;
+            flex-direction: column;
+
+            .info-container__personal {
+                margin-bottom: 15px;
+
+                h1 {
+                    margin-bottom: 15px;
+                }
+            }
+
+            .info-container__stats,
+            .info-container__abilities {
+                margin-bottom: 15px;
+
+                strong {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
 `;

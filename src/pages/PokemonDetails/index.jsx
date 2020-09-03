@@ -6,7 +6,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import DescriptionAbility from './DescriptionAbility';
 
-import { Back, Deitals } from './styles';
+import { Back, Details } from './styles';
 
 function PokemonDetails() {
     let { name } = useParams();
@@ -33,7 +33,7 @@ function PokemonDetails() {
                 <Back as={Link} to="/"><AiOutlineLeftCircle  size={35} /></Back> Pokemon Details
             </h1>
 
-            <Deitals>
+            <Details>
                 <div>
                     <LazyLoadImage
                         alt={name}
@@ -71,13 +71,13 @@ function PokemonDetails() {
                         {
                             info?.abilities.map(ability => (
                                 <span key={ability.ability.name}>
-                                    <b>{ability.ability.name}: </b> <DescriptionAbility url={ability.ability.url} />
+                                    <b>{ability.ability.name}</b> <DescriptionAbility url={ability.ability.url} />
                                 </span>
                             ))
                         }
                     </div>
                 </div>
-            </Deitals>
+            </Details>
 
         </>
     );
