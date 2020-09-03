@@ -26,4 +26,4 @@ Em seguida é só iniciar:
 Pretendo:
 - Realizar melhorias utilizando scroll infinito com lazy loading. (ou utilizar SWR da Vercel)
 - Realizar filtro e buscas por tipos de pokemon.
-- Responsividade
+- Criar alguma situação afim de utilizar Redux.
