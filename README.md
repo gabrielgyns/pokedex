@@ -6,7 +6,7 @@ Para os dados, estou consumindo a [PokéAPI](https://pokeapi.co/)
 
 ## Sobre o projeto
 
-Nesse projeto, utilizei Styled Components para trabalhar com o CSS. Também ficaria muito bom utilizando Material UI ou outra biblioteca CSS e de componentização. Não foi realizado testes, não teve muita necessidade nesse caso, porém poderia ter montado cenários para utiliza-los. Nos momentos em que criei o className para o CSS, foi utilizado o padrão BEM para nomeação. Além disso também foi incluído lazy-loading para para carregamento das imagens a medida que vamos rolando o scroll para baixo.
+Nesse projeto, utilizei Styled Components para trabalhar com o CSS. Também ficaria muito bom utilizando Material UI ou outra biblioteca CSS e de componentização. Não foi realizado testes, não teve muita necessidade nesse caso, porém poderia ter montado cenários para utiliza-los. Nos momentos em que criei o className para o CSS, foi utilizado o padrão BEM para nomeação. Além disso também foi incluído lazy-loading para para carregamento das imagens a medida que vamos rolando o scroll para baixo. Foi trabalhado também a responsividade do layout.
 
 ## Clone && Instalação
 
