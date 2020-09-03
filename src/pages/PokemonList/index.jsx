@@ -9,15 +9,16 @@ function PokemonList() {
     const [url, setUrl] = useState('');
     const [pokemonsList, setPokemonsList] = useState([]);
 
+    let source = axios.CancelToken.source();
     useEffect(() => {
         if (!url) {
             setUrl('https://pokeapi.co/api/v2/pokemon');
         }
 
-        axios.get(url).then(resp => {
+        axios.get(url, { cancelToken: source.token }).then(resp => {
             setPokemonsList(resp.data);
         });
-    }, [pokemonsList, url]);
+    }, [pokemonsList, source.token, url]);
 
     const navPage = (newUrl) => {
         document.documentElement.scrollTop = 0;

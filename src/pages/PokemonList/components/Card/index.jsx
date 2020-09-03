@@ -6,11 +6,12 @@ import { AiOutlineRightCircle } from 'react-icons/ai';
 function Card({ pokemon }) {
     const [info, setInfo] = useState();
 
+    let source = axios.CancelToken.source();
     useEffect(() => {
-        axios.get(pokemon.url).then(resul => {
+        axios.get(pokemon.url, { cancelToken: source.token }).then(resul => {
             setInfo(resul.data);
         })
-    }, [pokemon.url]);
+    }, [pokemon.url, source.token]);
 
     return (
         <Link as="a" to={`/details/${pokemon.name}`}>

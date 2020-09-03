@@ -12,11 +12,12 @@ function PokemonDetails() {
 
     const [info, setInfo] = useState();
 
+    let source = axios.CancelToken.source();
     useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`).then(result => {
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`, { cancelToken: source.token }).then(result => {
             setInfo(result.data);
         });
-    }, [name]);
+    }, [name, source.token]);
 
     return (
         <>
