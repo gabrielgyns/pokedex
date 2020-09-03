@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 export const List = styled.div`
-  margin-top: 80px;
+  margin-top: 30px;
   max-width: 700px;
 
   a {
@@ -58,6 +58,10 @@ export const List = styled.div`
         line-height: 28px;
         color: #3d3d4d;
         font-weight: bold;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
       }
 
       .info-container__types {
@@ -149,12 +153,6 @@ export const List = styled.div`
         margin-top: 4px;
       }
     }
-
-    @media screen and (max-width: 600px) {
-      .abilities-container{
-        display: none;
-      }
-    }
   }
 
   .pagination-container {
@@ -180,6 +178,62 @@ export const List = styled.div`
         cursor: not-allowed;
         color: #ffffff;
         background: #cbcbd6;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    img {
+      width: 150px !important;
+      height: 150px !important;
+    }
+
+    .card-back-image {
+      display: none;
+    }
+
+    a {
+      display: flex;
+      align-items:center;
+      flex-direction: column;
+
+      .info-container {
+        border-right: none;
+
+        small {
+          margin-left: -10px;
+          transform: scale(1.25);
+        }
+
+        strong {
+          transform: scale(1.25);
+          /* font-size: 35px; */
+          line-height: 50px;
+
+          &::first-letter {
+            text-transform: uppercase;
+          }
+        }
+
+        .info-container__types {
+          transform: scale(1.25);
+        }
+      }
+
+      .abilities-container{
+        display: none;
+      }
+
+      svg {
+        transform: scale(1.25);
+        margin-top: 25px;
+        margin-left: 0;
+      }
+    }
+
+    .pagination-container {
+      button {
+        transform: scale(1.25);
       }
     }
   }

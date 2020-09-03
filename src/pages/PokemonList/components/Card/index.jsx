@@ -23,6 +23,7 @@ function Card({ pokemon }) {
             <LazyLoadImage
                 alt={pokemon.name}
                 src={info?.sprites?.back_default}
+                className="card-back-image"
             />
 
             <div className="info-container">

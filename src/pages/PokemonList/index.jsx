@@ -31,7 +31,7 @@ function PokemonList() {
 
     return (
         <div>
-            <h1 >Pokemon List</h1>
+            <h1> Pokédex </h1>
 
             <List>
                 {pokemonsList.results?.map(pokemon => (
