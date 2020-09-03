@@ -2,7 +2,7 @@
 
 Olá, aqui estou desenvolvendo uma pokedex simples baseada em React e Styled-Components.
 
-Para os dados, estou consumindo a (PokéAPI)[https://pokeapi.co/].
+Para os dados, estou consumindo a [PokéAPI](https://pokeapi.co/)
 
 ## Sobre o projeto
 
